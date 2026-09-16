@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SmoothScroll from '../components/ui/SmoothScroll.jsx';
+import Hero from '../components/sections/Hero.jsx';
+import ProblemStatement from '../components/sections/ProblemStatement.jsx';
+import SynergyBento from '../components/sections/SynergyBento.jsx';
+import TechnicalSpecs from '../components/sections/TechnicalSpecs.jsx';
+import ProcessTimeline from '../components/sections/ProcessTimeline.jsx';
+import Footer from '../components/sections/Footer.jsx';
+---
+
+<Layout title="Gomitas fortificadas">
+	<SmoothScroll client:load>
+		<main class="w-full bg-black min-h-screen">
+			<Hero client:load />
+			<ProblemStatement client:load />
+			<SynergyBento client:load />
+			<TechnicalSpecs client:load />
+			<ProcessTimeline client:load />
+			<Footer />
+		</main>
+	</SmoothScroll>
+</Layout>
