@@ -34,14 +34,14 @@ export default function ProblemStatement() {
   return (
     <section 
       ref={containerRef} 
-      className="w-full min-h-screen flex items-center justify-center bg-black px-6 md:px-20 py-32"
+      className="w-full min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 md:px-20 py-24 md:py-32"
     >
       <div className="max-w-6xl mx-auto">
         <h2 
           ref={textRef}
-          className="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.3] tracking-tight text-white"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.3] md:leading-[1.3] tracking-tight text-white"
         >
-          <span className="text-neutral-600 block mb-6 text-xl tracking-widest uppercase">1. Resumen del Proyecto</span>
+          <span className="text-neutral-600 block mb-4 md:mb-6 text-sm md:text-xl tracking-widest uppercase">1. Resumen del Proyecto</span>
           La anemia por deficiencia de hierro es una de las afecciones nutricionales más prevalentes a nivel mundial. El desarrollo de <span className="text-white">gomitas nutracéuticas</span> representa una estrategia altamente efectiva para mejorar la <span className="text-[#e63946]">adherencia al tratamiento</span>, especialmente en poblaciones infantiles y adultas con dificultad para deglutir tabletas convencionales.
         </h2>
       </div>

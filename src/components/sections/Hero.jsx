@@ -93,19 +93,19 @@ export default function Hero() {
       <div className="z-10 text-center px-4 mt-20 relative">
         <h1 
           ref={titleRef}
-          className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-[0.9] text-white"
+          className="text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-[0.9] text-white"
         >
           Gomitas <br />
           Fortificadas
         </h1>
         <p 
           ref={subtitleRef}
-          className="mt-8 text-lg md:text-2xl text-neutral-400 font-light max-w-4xl mx-auto tracking-tight"
+          className="mt-6 md:mt-8 text-base md:text-2xl text-neutral-400 font-light max-w-4xl mx-auto tracking-tight px-4"
         >
           Desarrollo de Gomitas Fortificadas contra la Anemia.
         </p>
 
-        <div ref={metadataRef} className="mt-16 flex flex-wrap justify-center gap-10 md:gap-16 text-xs md:text-sm uppercase tracking-widest text-neutral-500 font-medium">
+        <div ref={metadataRef} className="mt-12 md:mt-16 flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 text-xs md:text-sm uppercase tracking-widest text-neutral-500 font-medium">
           <div className="flex flex-col gap-2 items-center">
             <span className="text-white/30 text-[10px] tracking-[0.3em]">Categoría</span>
             <span className="text-[#e63946]">Alimento Funcional</span>

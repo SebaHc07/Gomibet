@@ -29,14 +29,14 @@ export default function TechnicalSpecs() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-32 px-6 md:px-20 text-white border-t border-white/10">
+    <section ref={containerRef} className="w-full min-h-screen bg-black py-24 md:py-32 px-4 sm:px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-16 text-white">
-          4. Tabla Comparativa de<br/>Fuentes de Hierro
-        </h3>
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight mb-16 md:mb-24 text-white">
+          4. Tabla Comparativa <br/><span className="text-neutral-600">de Fuentes de Hierro</span>
+        </h2>
         
-        <div ref={tableRef} className="w-full overflow-x-auto hide-scrollbar">
-          <table className="w-full text-left border-collapse min-w-[800px]">
+        <div ref={tableRef} className="w-full overflow-x-auto pb-8 hide-scrollbar">
+          <table className="w-full min-w-[800px] text-left border-collapse">
             <thead>
               <tr className="border-b border-white/20">
                 <th className="py-6 text-xl font-normal text-white w-1/4">Compound</th>

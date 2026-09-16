@@ -63,30 +63,31 @@ export default function ProcessTimeline() {
   ];
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-32 px-6 md:px-20 text-white border-t border-white/5">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+    <section ref={containerRef} className="w-full min-h-screen bg-black py-24 md:py-32 px-4 sm:px-6 md:px-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
+        
         <div className="flex-1">
-          <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-16 text-white">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-12 md:mb-16 text-white">
             5. Proceso de Elaboración
           </h3>
           
-          <div className="flex flex-col gap-10 ml-4 pl-10 relative">
+          <div className="flex flex-col gap-8 md:gap-10 ml-8 sm:ml-12 md:ml-4 pl-8 sm:pl-10 relative">
             <div ref={lineRef} className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#e63946] via-[#ff9f1c] to-white/10"></div>
             {steps.map((step, index) => (
               <div key={index} ref={addToRefs} className="relative">
-                <div className="absolute -left-[57px] top-0 w-8 h-8 rounded-full bg-black border border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_15px_rgba(230,57,70,0.3)]">
+                <div className="absolute -left-[49px] sm:-left-[57px] top-0 w-8 h-8 rounded-full bg-black border border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_15px_rgba(230,57,70,0.3)]">
                   {step.num}
                 </div>
-                <h4 className="text-2xl font-medium mb-2 text-white/90">{step.title}</h4>
-                <p className="text-neutral-500 font-light max-w-sm">{step.desc}</p>
+                <h4 className="text-xl sm:text-2xl font-medium mb-2 text-white/90">{step.title}</h4>
+                <p className="text-sm md:text-base text-neutral-400 font-light leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex-1 lg:pl-20">
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight mb-10 text-neutral-400">
-            Consideraciones Técnicas
+        <div className="flex-1 lg:pt-32">
+          <h3 className="text-2xl md:text-3xl font-medium tracking-tight mb-8 md:mb-12 text-white border-b border-white/10 pb-6">
+            Consideraciones Técnicas y Conservación
           </h3>
           
           <div className="flex flex-col gap-8">
