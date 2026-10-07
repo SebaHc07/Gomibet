@@ -1,43 +1,59 @@
-# Astro Starter Kit: Minimal
+# Gomitas Fortificadas
+
+Página informativa en español sobre una propuesta de gomitas fortificadas con hierro y vitamina C. Incluye formulación, exploración interactiva de ingredientes, comparación de fuentes de hierro y proceso de elaboración.
+
+## Tecnologías
+
+Astro genera una página estática. React implementa los componentes interactivos, Tailwind CSS los estilos, GSAP las animaciones. El desplazamiento entre secciones utiliza el comportamiento nativo del navegador.
+
+## Requisitos e instalación
+
+Node.js >= 22.12.0 y Bun.
 
 ```sh
-bun create astro@latest -- --template minimal
+bun install --frozen-lockfile
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Desarrollo
 
-## 🚀 Project Structure
+Iniciar el servidor en segundo plano y administrarlo con:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+bun run astro dev --background
+bun run astro dev status
+bun run astro dev logs
+bun run astro dev stop
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Compilación
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+bun run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+La salida estática se genera en `dist/`. Para previsualizarla:
 
-## 🧞 Commands
+```sh
+bun run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+La compilación comprueba que el sitio puede generarse; no sustituye las pruebas de interacción en navegador. Actualmente no hay una suite de pruebas automatizadas.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+## Estructura
 
-## 👀 Want to learn more?
+- `src/pages/index.astro`: composición de la página.
+- `src/layouts/Layout.astro`: metadatos y estructura HTML.
+- `src/components/sections/`: secciones y diálogo de ingredientes.
+- `src/components/sections/ProductGallery.astro`: galería con las dos imágenes nuevas, ampliación accesible y navegación por teclado.
+- `src/components/ui/Navigation.astro`: navegación de escritorio y menú móvil.
+- `src/components/sections/Testimonials.astro`: testimonios de Karen Sanchez y Azumi Chipana proporcionados por el responsable del proyecto.
+- `src/styles/global.css`: estilos globales.
+- `public/assets/`: imágenes usadas en la página.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `src/components/ui/MotionEnhancements.astro`: animaciones GSAP, progreso de lectura y navegación activa; respeta la preferencia de movimiento reducido.
+
+## Comprobación manual
+
+Abrir cada punto de la gomita con clic o Enter. Comprobar el cierre mediante botón, Escape y clic en el fondo; el foco debe volver al punto que abrió el diálogo. Con el diálogo cerrado, su botón de cierre no debe aparecer al navegar con Tab. Revisar también que el contenido del diálogo sea accesible mediante desplazamiento en pantallas pequeñas.
+
+La galería admite clic para ampliar, flechas izquierda/derecha para cambiar de imagen y Escape para cerrar. Al cerrar, el foco regresa a la miniatura inicial.

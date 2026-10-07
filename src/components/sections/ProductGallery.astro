@@ -1,0 +1,92 @@
+---
+const photos = [
+  { src: '/images/Gemini_Generated_Image_fh1js4fh1js4fh1j.jpg', width: 816, height: 1302, title: 'Pequeña en tamaño. Llena de detalles.', alt: 'Una mano sostiene una gomita roja con forma de oso sobre un plato de gomitas.', label: 'Una mirada de cerca', number: '01' },
+  { src: '/images/Gemini_Generated_Image_s94kg7s94kg7s94k.jpg', width: 864, height: 1228, title: 'Distintas formas de disfrutar.', alt: 'Gomitas rojas con formas de números y figuras distribuidas sobre una bandeja.', label: 'Formas que despiertan curiosidad', number: '02' },
+];
+---
+<section id="galeria" class="product-gallery" aria-labelledby="gallery-title">
+  <div class="gallery-intro">
+    <p class="section-kicker">EL PROYECTO, MÁS DE CERCA</p>
+    <h2 id="gallery-title">Pequeñas formas.<br /><em>Muchos detalles.</em></h2>
+    <p>Del concepto a la forma: una mirada al color, la textura y los detalles de las gomitas.</p>
+    <a href="#formulacion" class="gallery-follow">Descubre lo que hay detrás <span aria-hidden="true">↗</span></a>
+    <span class="gallery-index" aria-hidden="true">01 — 02</span>
+  </div>
+  <div class="gallery-photos">
+    {photos.map(photo => <figure class="gallery-frame" data-gallery-frame>
+      <a href={photo.src} class="gallery-image-link" data-gallery-open data-title={photo.title} data-alt={photo.alt} data-width={photo.width} data-height={photo.height} aria-label={`Ampliar imagen: ${photo.label}`} aria-haspopup="dialog" aria-controls="gallery-dialog">
+        <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+        <span class="gallery-zoom" aria-hidden="true"><span>Ver en detalle</span><span>↗</span></span>
+      </a>
+      <figcaption><span>{photo.number}</span><div><p>{photo.label}</p><h3>{photo.title}</h3></div></figcaption>
+    </figure>)}
+  </div>
+</section>
+<dialog id="gallery-dialog" class="gallery-dialog" aria-labelledby="gallery-dialog-title">
+  <div class="gallery-viewer" data-lenis-prevent>
+    <div class="gallery-viewer-header"><span>GALERÍA DEL PROYECTO</span><button type="button" data-gallery-close aria-label="Cerrar galería">Cerrar <span aria-hidden="true">×</span></button></div>
+    <div class="gallery-full-image"><img alt="" /></div>
+    <div class="gallery-viewer-footer"><div><p id="gallery-dialog-title"></p><p class="gallery-position" aria-live="polite"></p></div><div class="gallery-controls"><button type="button" data-gallery-prev aria-label="Imagen anterior">←</button><button type="button" data-gallery-next aria-label="Imagen siguiente">→</button></div></div>
+  </div>
+</dialog>
+<script>
+  import gsap from 'gsap';
+  const dialog = document.querySelector<HTMLDialogElement>('#gallery-dialog')!;
+  const viewer = dialog.querySelector<HTMLElement>('.gallery-viewer')!;
+  const photo = dialog.querySelector<HTMLImageElement>('img')!;
+  const title = dialog.querySelector<HTMLElement>('#gallery-dialog-title')!;
+  const position = dialog.querySelector<HTMLElement>('.gallery-position')!;
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-gallery-open]')];
+  const closeButton = dialog.querySelector<HTMLButtonElement>('[data-gallery-close]')!;
+  const abort = new AbortController();
+  const options = { signal: abort.signal };
+  let selected = 0;
+  let opener: HTMLAnchorElement | null = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function show(index: number) {
+    selected = (index + links.length) % links.length;
+    const link = links[selected];
+    photo.src = link.href;
+    photo.alt = link.dataset.alt || '';
+    photo.width = Number(link.dataset.width);
+    photo.height = Number(link.dataset.height);
+    title.textContent = link.dataset.title || '';
+    position.textContent = `${selected + 1} de ${links.length}`;
+    gsap.killTweensOf(photo);
+    if (!reducedMotion.matches) gsap.fromTo(photo, { opacity: 0.4 }, { opacity: 1, duration: 0.3, clearProps: 'opacity' });
+    else gsap.set(photo, { clearProps: 'opacity' });
+  }
+  links.forEach((link, index) => link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    opener = link;
+    show(index);
+    dialog.showModal();
+    document.documentElement.classList.add('gallery-open');
+    closeButton.focus({ preventScroll: true });
+    gsap.killTweensOf(viewer);
+    if (!reducedMotion.matches) gsap.fromTo(viewer, { opacity: 0, y: 16, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power2.out', clearProps: 'all' });
+  }, options));
+  closeButton.addEventListener('click', () => dialog.close(), options);
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); }, options);
+  dialog.addEventListener('close', () => {
+    gsap.killTweensOf([viewer, photo]);
+    gsap.set([viewer, photo], { clearProps: 'all' });
+    document.documentElement.classList.remove('gallery-open');
+    opener?.focus({ preventScroll: true });
+  }, options);
+  dialog.querySelector('[data-gallery-prev]')!.addEventListener('click', () => show(selected - 1), options);
+  dialog.querySelector('[data-gallery-next]')!.addEventListener('click', () => show(selected + 1), options);
+  dialog.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      show(selected + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  }, options);
+  import.meta.hot?.dispose(() => {
+    abort.abort();
+    if (dialog.open) dialog.close();
+    document.documentElement.classList.remove('gallery-open');
+    gsap.killTweensOf([viewer, photo]);
+  });
+</script>

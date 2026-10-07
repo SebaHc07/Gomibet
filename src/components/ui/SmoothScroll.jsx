@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }) {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
@@ -19,13 +20,15 @@ export default function SmoothScroll({ children }) {
       infinite: false,
     });
 
+    let frameId;
+
     function raf(time) {
       lenis.raf(time);
       ScrollTrigger.update();
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    frameId = requestAnimationFrame(raf);
 
     // Sincronizar ScrollTrigger con Lenis
     ScrollTrigger.scrollerProxy(document.body, {
@@ -41,6 +44,8 @@ export default function SmoothScroll({ children }) {
     });
 
     return () => {
+      cancelAnimationFrame(frameId);
+      ScrollTrigger.scrollerProxy(document.body, null);
       lenis.destroy();
     };
   }, []);

@@ -30,7 +30,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto mt-20 pt-6 border-t border-white/10 flex justify-between text-xs text-neutral-600">
-        <p>© 2026 Nutrición Intervencional.</p>
+        <p>© IESTP - ET - EIML - 2026.</p>
         <p>Gomitas Fortificadas</p>
       </div>
     </footer>

@@ -10,26 +10,18 @@ export default function SynergyBento() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cardsRef.current,
-        { opacity: 0, y: 100, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 75%',
-          }
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      cardsRef.current.forEach(card => {
+        if (card.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+        gsap.from(card, {
+          opacity: 0, y: 32, duration: 0.75, ease: 'power3.out',
+          clearProps: 'opacity,transform',
+          scrollTrigger: { trigger: card, start: 'top 94%', once: true },
+        });
+      });
+    });
+    return () => media.revert();
   }, []);
 
   const addToRefs = (el) => {
@@ -39,20 +31,20 @@ export default function SynergyBento() {
   };
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-32 px-6 md:px-20 text-white border-t border-white/5">
+    <section id="formulacion" ref={containerRef} className="w-full bg-black py-32 px-6 md:px-20 text-white border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <h3 className="text-3xl md:text-5xl font-medium tracking-tight text-white">
             2. Formulación e<br/>Ingredientes Clave
           </h3>
-          <span className="hidden md:block text-sm uppercase tracking-[0.2em] text-neutral-500">Mecanismo de Sinergia</span>
+          <span className="hidden lg:block text-sm uppercase tracking-[0.2em] text-neutral-500">Mecanismo de Sinergia</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[auto]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-[auto]">
           {/* Card 1: Hierro */}
           <div 
             ref={addToRefs}
-            className="md:col-span-2 min-h-[300px] relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 flex flex-col justify-between group"
+            className="lg:col-span-2 min-h-[300px] relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 lg:p-12 flex flex-col justify-between group"
           >
             <div className="absolute top-0 left-0 w-full h-full glow-iron opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
             <div className="z-10 flex justify-between items-start mb-12">
@@ -70,7 +62,7 @@ export default function SynergyBento() {
           {/* Card 2: Vitamina C */}
           <div 
             ref={addToRefs}
-            className="md:col-span-1 min-h-[300px] relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 flex flex-col justify-between group"
+            className="lg:col-span-1 min-h-[300px] relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 lg:p-12 flex flex-col justify-between group"
           >
             <div className="absolute top-0 left-0 w-full h-full glow-vitc opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
             <div className="z-10 flex justify-between items-start mb-12">
@@ -87,10 +79,18 @@ export default function SynergyBento() {
           {/* Card 3: Imagen Abstracta Sinergia */}
           <div 
             ref={addToRefs}
-            className="md:col-span-1 relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] min-h-[400px] group flex items-center justify-center p-0"
+            className="lg:col-span-1 rounded-3xl bg-white/5 border border-white/10 p-1 flex items-center justify-center overflow-hidden relative min-h-[300px] md:min-h-[400px]"
           >
-            <img src="/assets/synergy_asset.jpg" alt="Sinergia Bioquímica" className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" />
-            <div className="absolute bottom-6 left-6 z-10">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(230,57,70,0.15)_0%,rgba(0,0,0,0)_70%)] z-10"></div>
+            <img 
+              src="/assets/synergy_asset.jpg" 
+              alt="Sinergia Bioquímica" 
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover opacity-60 mix-blend-screen scale-110"
+            />
+            
+            <div className="absolute bottom-6 left-6 right-6 z-20">
               <span className="text-xs uppercase tracking-widest text-white drop-shadow-md">Sinergia Fe²⁺ + VitC</span>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function SynergyBento() {
           {/* Card 4: Base y Sabor */}
           <div 
             ref={addToRefs}
-            className="md:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 flex flex-col justify-between group"
+            className="lg:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 lg:p-12 flex flex-col justify-between group"
           >
             <div className="z-10 max-w-2xl mb-8">
               <h4 className="text-2xl font-medium mb-2 flex items-center gap-3"><Microscope className="w-6 h-6 text-neutral-400"/> Base Gelificante y Texturizante</h4>

@@ -1,0 +1,39 @@
+---
+const stories = [
+  {
+    initials: 'KS', name: 'Karen Sanchez', location: 'Quilmaná · Roldán',
+    detail: '25 años · Mamá de un niño de 3 años',
+    quote: 'Desde que incluyo las gomitas de quinoa, betabel y naranja en mis mañanas, me siento con más energía para mi día. Las tomo como complemento a mi alimentación.',
+    theme: 'En su rutina de cada mañana', tone: 'peach',
+  },
+  {
+    initials: 'AC', name: 'Azumi Chipana', location: 'Nuevo Imperial · Santa Adela',
+    detail: '',
+    quote: 'Me gustan porque no me caen pesadas como otras vitaminas y tienen sabor a naranja. Las sigo tomando junto a mi tratamiento.',
+    theme: 'Un sabor que la acompaña', tone: 'sage',
+  },
+];
+---
+<section id="testimonios" class="testimonials-section" aria-labelledby="testimonials-title">
+  <div class="testimonials-heading" data-reveal>
+    <div><p class="section-kicker">06 / EXPERIENCIAS QUE NOS ACERCAN</p><h2 id="testimonials-title">Personas reales.<br /><em>Historias que acompañan.</em></h2></div>
+    <p>La nutrición también se cuenta en primera persona. Karen y Azumi comparten su experiencia con las gomitas.</p>
+  </div>
+  <div class="testimonials-grid real-stories">
+    {stories.map(story => <figure class={`story-card story-${story.tone}`} data-reveal>
+      <div class="story-top"><span>{story.theme}</span><span aria-hidden="true">“</span></div>
+      <blockquote><p>{story.quote}</p></blockquote>
+      <figcaption>
+        <span class="story-avatar" aria-hidden="true">{story.initials}</span>
+        <div><strong>{story.name}</strong>{story.detail && <span>{story.detail}</span>}<span class="story-location">{story.location}</span></div>
+      </figcaption>
+    </figure>)}
+  </div>
+  <div class="testimonials-bottom"><span>Experiencias personales compartidas por sus protagonistas.</span><a href="#formulacion">Conoce los ingredientes <span aria-hidden="true">↗</span></a></div>
+</section>
+<section class="closing-section" aria-labelledby="closing-title">
+  <p class="section-kicker" data-reveal>NUTRICIÓN INTERVENCIONAL</p>
+  <h2 id="closing-title" data-reveal>Un pequeño formato.<br /><em>Mucho por descubrir.</em></h2>
+  <a class="primary-action" href="#sinergia" data-reveal>Explora el interior de la gomita <span aria-hidden="true">↗</span></a>
+  <span class="closing-outline" aria-hidden="true">ni.</span>
+</section>

@@ -11,42 +11,22 @@ export default function ProcessTimeline() {
   const lineRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animar la línea conectora hacia abajo
-      gsap.fromTo(
-        lineRef.current,
-        { scaleY: 0, transformOrigin: "top" },
-        {
-          scaleY: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 50%',
-            end: 'bottom 80%',
-            scrub: true,
-          }
-        }
-      );
-
-      gsap.fromTo(
-        stepsRef.current,
-        { opacity: 0, x: -50, scale: 0.9 },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1,
-          stagger: 0.3,
-          ease: 'back.out(1.2)',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 60%',
-          }
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.fromTo(lineRef.current, { scaleY: 0, transformOrigin: 'top' }, {
+        scaleY: 1, ease: 'none',
+        scrollTrigger: { trigger: lineRef.current, start: 'top 75%', end: 'bottom 75%', scrub: 0.5 },
+      });
+      stepsRef.current.forEach(step => {
+        if (step.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+        gsap.from(step, {
+          opacity: 0, y: 24, duration: 0.65, ease: 'power3.out',
+          clearProps: 'opacity,transform',
+          scrollTrigger: { trigger: step, start: 'top 94%', once: true },
+        });
+      });
+    });
+    return () => media.revert();
   }, []);
 
   const addToRefs = (el) => {
@@ -63,7 +43,7 @@ export default function ProcessTimeline() {
   ];
 
   return (
-    <section ref={containerRef} className="w-full min-h-screen bg-black py-24 md:py-32 px-4 sm:px-6 md:px-20 overflow-hidden">
+    <section id="proceso" ref={containerRef} className="w-full min-h-0 bg-black py-24 md:py-32 px-4 sm:px-6 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
         
         <div className="flex-1">

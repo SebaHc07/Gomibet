@@ -1,0 +1,35 @@
+---
+const links = [
+  ['Proyecto', '#proyecto'], ['Galería', '#galeria'], ['Formulación', '#formulacion'],
+  ['Comparativa', '#comparativa'], ['Proceso', '#proceso'], ['Testimonios', '#testimonios'],
+];
+---
+<header class="site-header">
+  <a href="#inicio" class="brand" aria-label="Nutrición Intervencional, inicio"><span class="brand-mark">ni<span>·</span></span><span>Nutrición<br /><strong>Intervencional</strong></span></a>
+  <nav class="desktop-nav" aria-label="Navegación principal">{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
+  <a class="nav-explore" href="#sinergia">Explorar <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu">
+    <summary aria-label="Menú de navegación"><span>Menú</span><span class="menu-icon" aria-hidden="true"></span></summary>
+    <nav aria-label="Navegación móvil">{links.map(([label, href], index) => <a href={href}><span>0{index + 1}</span>{label}<span aria-hidden="true">↗</span></a>)}<a href="#sinergia"><span>+</span>Explorar la gomita<span aria-hidden="true">↗</span></a></nav>
+  </details>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.open = false;
+    const target = document.querySelector<HTMLElement>(link.getAttribute('href') ?? '');
+    if (target) {
+      target.setAttribute('tabindex', '-1');
+      requestAnimationFrame(() => target.focus({ preventScroll: true }));
+    }
+  }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+</script>

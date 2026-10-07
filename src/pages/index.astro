@@ -1,21 +1,32 @@
 ---
+import MotionEnhancements from '../components/ui/MotionEnhancements.astro';
+import Navigation from '../components/ui/Navigation.astro';
+import ProductGallery from '../components/sections/ProductGallery.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
 import Layout from '../layouts/Layout.astro';
-import SmoothScroll from '../components/ui/SmoothScroll.jsx';
 import Hero from '../components/sections/Hero.jsx';
 import ProblemStatement from '../components/sections/ProblemStatement.jsx';
 import SynergyBento from '../components/sections/SynergyBento.jsx';
+import InteractiveHotspots from '../components/sections/InteractiveHotspots.jsx';
 import TechnicalSpecs from '../components/sections/TechnicalSpecs.jsx';
 import ProcessTimeline from '../components/sections/ProcessTimeline.jsx';
 ---
 
-<Layout title="Gomitas fortificadas">
-	<SmoothScroll client:load>
-		<main class="w-full bg-black min-h-screen">
-			<Hero client:load />
+<Layout title="Nutrición Intervencional - Gomitas Premium">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <Navigation />
+    <MotionEnhancements />
+
+		<main id="contenido" class="w-full bg-black min-h-screen">
+			<Hero />
 			<ProblemStatement client:load />
+            <ProductGallery />
 			<SynergyBento client:load />
-			<TechnicalSpecs client:load />
+			<InteractiveHotspots client:load />
+			<TechnicalSpecs />
 			<ProcessTimeline client:load />
+            <Testimonials />
 		</main>
-	</SmoothScroll>
+
+    <footer class="site-footer"><a class="footer-wordmark" href="#inicio">Nutrición<span>Intervencional.</span></a><div><p>Gomitas Fortificadas</p><a href="#inicio">Volver al inicio ↑</a></div><p class="footer-copyright">© IESTP - ET - EIML - 2026.</p></footer>
 </Layout>

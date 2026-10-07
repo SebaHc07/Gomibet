@@ -1,0 +1,86 @@
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const media = gsap.matchMedia();
+  let disposed = false;
+  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('.site-header nav a')];
+  const clearCurrent = () => navLinks.forEach(link => link.removeAttribute('aria-current'));
+  const context = gsap.context(() => {
+    gsap.to('.reading-progress span', {
+      scaleX: 1, ease: 'none',
+      scrollTrigger: { trigger: document.documentElement, start: 0, end: 'max', scrub: true },
+    });
+    gsap.utils.toArray<HTMLElement>('main section[id]').forEach(section => {
+      ScrollTrigger.create({
+        trigger: section, start: 'top 35%', end: 'bottom 35%',
+        onToggle: ({ isActive }) => {
+          if (isActive) {
+            clearCurrent();
+            navLinks.filter(link => link.hash === `#${section.id}`).forEach(link => link.setAttribute('aria-current', 'location'));
+          }
+        },
+      });
+    });
+  });
+
+  media.add('(prefers-reduced-motion: no-preference)', () => {
+    // The server-rendered content stays visible if JavaScript is unavailable.
+    // Deep links skip the intro so the destination is immediately readable.
+    if (!location.hash || location.hash === '#inicio') {
+      gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } })
+        .from('.hero-title-line', { yPercent: 105, stagger: 0.13, clearProps: 'transform' })
+        .from('.hero-copy .eyebrow, .hero-description, .hero-actions, .hero-proof', { y: 18, opacity: 0, stagger: 0.09, clearProps: 'all' }, 0.2)
+        .from('.product-visual', { y: 30, rotate: 3, opacity: 0, clearProps: 'transform,opacity' }, 0.15)
+        .from('.hero-metadata > div', { y: 12, opacity: 0, stagger: 0.08, clearProps: 'all' }, 0.6);
+    }
+    gsap.utils.toArray<HTMLElement>('[data-gallery-frame]').forEach((frame, index) => {
+      if (frame.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      gsap.from(frame, {
+        y: 40, rotation: index % 2 ? 1.5 : -1.5, opacity: 0,
+        duration: 0.95, ease: 'power3.out', clearProps: 'transform,opacity',
+        scrollTrigger: { trigger: frame, start: 'top 92%', once: true },
+      });
+    });
+    gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(element => {
+      // Never hide content already reached through an anchor or scroll restoration.
+      if (element.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      gsap.from(element, {
+        y: 32, opacity: 0, duration: 0.85, ease: 'power3.out', clearProps: 'transform,opacity',
+        scrollTrigger: { trigger: element, start: 'top 94%', once: true },
+      });
+    });
+  });
+
+  media.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
+    gsap.fromTo('.gallery-index', { y: 0 }, {
+      y: 24, ease: 'none',
+      scrollTrigger: { trigger: '#galeria', start: 'top bottom', end: 'bottom top', scrub: 0.7 },
+    });
+    gsap.to('.product-visual .label-iron', {
+      y: -32, rotate: -4, ease: 'none',
+      scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1 },
+    });
+    gsap.to('.product-visual .label-vitamin', {
+      y: 22, rotate: 3, ease: 'none',
+      scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1 },
+    });
+    gsap.fromTo('.closing-outline', { xPercent: -8 }, {
+      xPercent: 8, ease: 'none',
+      scrollTrigger: { trigger: '.closing-section', start: 'top bottom', end: 'bottom top', scrub: 1 },
+    });
+  });
+
+  const refresh = () => { if (!disposed) ScrollTrigger.refresh(); };
+  document.fonts.ready.then(refresh);
+  window.addEventListener('load', refresh, { once: true });
+  import.meta.hot?.dispose(() => {
+    disposed = true;
+    window.removeEventListener('load', refresh);
+    media.revert();
+    context.revert();
+    clearCurrent();
+  });
+</script>

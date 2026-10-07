@@ -1,82 +1,27 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import React from 'react';
 
-gsap.registerPlugin(ScrollTrigger);
+const sources = [
+  { name: 'Bisglicinato Ferroso', availability: 'Alta (Absorción intacta)', tolerance: 'Excelente', taste: 'Nulo/Bajo' },
+  { name: 'Sulfato Ferroso', availability: 'Moderada', tolerance: 'Baja', taste: 'Alto' },
+  { name: 'Fumarato Ferroso', availability: 'Moderada', tolerance: 'Media', taste: 'Medio' },
+  { name: 'Gluconato Ferroso', availability: 'Buena', tolerance: 'Buena', taste: 'Bajo' },
+];
 
 export default function TechnicalSpecs() {
-  const containerRef = useRef(null);
-  const tableRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        tableRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 75%',
-          }
-        }
-      );
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={containerRef} className="w-full min-h-screen bg-black py-24 md:py-32 px-4 sm:px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight mb-16 md:mb-24 text-white">
-          4. Tabla Comparativa <br/><span className="text-neutral-600">de Fuentes de Hierro</span>
-        </h2>
-        
-        <div ref={tableRef} className="w-full overflow-x-auto pb-8 hide-scrollbar">
-          <table className="w-full min-w-[800px] text-left border-collapse">
-            <thead>
-              <tr className="border-b border-white/20">
-                <th className="py-6 text-xl font-normal text-white w-1/4">Compound</th>
-                <th className="py-6 text-sm font-normal text-neutral-500 w-1/4">Bioavailability</th>
-                <th className="py-6 text-sm font-normal text-neutral-500 w-1/4">Gastric Tolerance</th>
-                <th className="py-6 text-sm font-normal text-neutral-500 w-1/4">Metallic Taste</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Highlighted Row */}
-              <tr className="border-b border-white/10 bg-white/[0.02]">
-                <td className="py-6 text-lg font-medium text-white flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#e63946]"></div>
-                  Bisglicinato Ferroso
-                </td>
-                <td className="py-6 text-neutral-300">Alta (Absorción intacta)</td>
-                <td className="py-6 text-neutral-300">Excelente</td>
-                <td className="py-6 text-neutral-300">Nulo/Bajo</td>
-              </tr>
-              <tr className="border-b border-white/5 group hover:bg-white/[0.01] transition-colors">
-                <td className="py-6 text-neutral-400 pl-4 group-hover:text-neutral-300">Sulfato Ferroso</td>
-                <td className="py-6 text-neutral-500">Moderada</td>
-                <td className="py-6 text-neutral-500">Baja</td>
-                <td className="py-6 text-neutral-500">Alto</td>
-              </tr>
-              <tr className="border-b border-white/5 group hover:bg-white/[0.01] transition-colors">
-                <td className="py-6 text-neutral-400 pl-4 group-hover:text-neutral-300">Fumarato Ferroso</td>
-                <td className="py-6 text-neutral-500">Moderada</td>
-                <td className="py-6 text-neutral-500">Media</td>
-                <td className="py-6 text-neutral-500">Medio</td>
-              </tr>
-              <tr className="border-b border-white/5 group hover:bg-white/[0.01] transition-colors">
-                <td className="py-6 text-neutral-400 pl-4 group-hover:text-neutral-300">Gluconato Ferroso</td>
-                <td className="py-6 text-neutral-500">Buena</td>
-                <td className="py-6 text-neutral-500">Buena</td>
-                <td className="py-6 text-neutral-500">Bajo</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <section id="comparativa" className="comparison-section">
+      <div className="section-container">
+        <p className="section-kicker">04 / UNA ELECCIÓN INFORMADA</p>
+        <div className="comparison-heading" data-reveal><h2>Distintas fuentes.<br /><span>Una mirada en detalle.</span></h2><p>Tabla Comparativa de Fuentes de Hierro.<br />Biodisponibilidad, tolerancia y sabor, lado a lado.</p></div>
+        <table className="comparison-table" data-reveal>
+          <caption className="sr-only">Comparación de cuatro fuentes de hierro</caption>
+          <thead><tr><th scope="col">Compuesto</th><th scope="col">Biodisponibilidad</th><th scope="col">Tolerancia gástrica</th><th scope="col">Sabor metálico</th></tr></thead>
+          <tbody>{sources.map((source, i) => <tr key={source.name} className={i === 0 ? 'recommended-source' : ''}><th scope="row">{source.name}{i === 0 && <span className="source-badge">Opción recomendada</span>}</th><td>{source.availability}</td><td>{source.tolerance}</td><td>{source.taste}</td></tr>)}</tbody>
+        </table>
+        <div className="comparison-cards">{sources.map((source, i) => <article key={source.name} className={i === 0 ? 'recommended-source' : ''}>
+          <h3>{source.name}</h3>{i === 0 && <span className="source-badge">Opción recomendada</span>}
+          <dl><div><dt>Biodisponibilidad</dt><dd>{source.availability}</dd></div><div><dt>Tolerancia gástrica</dt><dd>{source.tolerance}</dd></div><div><dt>Sabor metálico</dt><dd>{source.taste}</dd></div></dl>
+        </article>)}</div>
       </div>
     </section>
   );
