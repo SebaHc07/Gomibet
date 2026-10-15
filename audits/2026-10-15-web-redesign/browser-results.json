@@ -1,0 +1,289 @@
+{
+  "structure": {
+    "title": "GOMIBET | Gomitas fortificadas con hierro y vitamina C",
+    "lang": "es",
+    "h1": 1,
+    "missingAnchors": [],
+    "duplicateIds": [],
+    "headings": [
+      {
+        "level": "H1",
+        "text": "Pequeñas gomitas.Una propuestacon propósito."
+      },
+      {
+        "level": "H2",
+        "text": "¿Qué te gustaría conocer?"
+      },
+      {
+        "level": "H2",
+        "text": "Nutrición pensadapara el día a día."
+      },
+      {
+        "level": "H2",
+        "text": "Formulación eIngredientes Clave"
+      },
+      {
+        "level": "H3",
+        "text": "Bisglicinato Ferroso"
+      },
+      {
+        "level": "H3",
+        "text": "Vitamina C (Ácido Ascórbico)"
+      },
+      {
+        "level": "H3",
+        "text": "Base Gelificante y Texturizante"
+      },
+      {
+        "level": "H3",
+        "text": "Sistema Modificador de Sabor"
+      },
+      {
+        "level": "H2",
+        "text": "Pequeñas formas.Muchos detalles."
+      },
+      {
+        "level": "H3",
+        "text": "Pequeña en tamaño. Llena de detalles."
+      },
+      {
+        "level": "H3",
+        "text": "Distintas formas de disfrutar."
+      },
+      {
+        "level": "H2",
+        "text": "Anatomía de la Sinergia"
+      },
+      {
+        "level": "H3",
+        "text": ""
+      },
+      {
+        "level": "H2",
+        "text": "Distintas fuentes.Una mirada en detalle."
+      },
+      {
+        "level": "H3",
+        "text": "Bisglicinato Ferroso"
+      },
+      {
+        "level": "H3",
+        "text": "Sulfato Ferroso"
+      },
+      {
+        "level": "H3",
+        "text": "Fumarato Ferroso"
+      },
+      {
+        "level": "H3",
+        "text": "Gluconato Ferroso"
+      },
+      {
+        "level": "H2",
+        "text": "Proceso de Elaboración"
+      },
+      {
+        "level": "H3",
+        "text": "Mezcla e Hidratación"
+      },
+      {
+        "level": "H3",
+        "text": "Adición Activa"
+      },
+      {
+        "level": "H3",
+        "text": "Moldeo"
+      },
+      {
+        "level": "H3",
+        "text": "Curado y Empaque"
+      },
+      {
+        "level": "H3",
+        "text": "Consideraciones Técnicas y Conservación"
+      },
+      {
+        "level": "H4",
+        "text": "Control de pH"
+      },
+      {
+        "level": "H4",
+        "text": "Empaque Opaco"
+      },
+      {
+        "level": "H4",
+        "text": "Dosificación Sugerida"
+      },
+      {
+        "level": "H2",
+        "text": "Personas reales.Historias que acompañan."
+      },
+      {
+        "level": "H2",
+        "text": "Conoce la propuesta por dentro."
+      },
+      {
+        "level": "H2",
+        "text": "Resolvemos tus dudas."
+      }
+    ]
+  },
+  "matrix": [
+    {
+      "width": 320,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 360,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 375,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 414,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 640,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 641,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 900,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 901,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 1024,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 1280,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    },
+    {
+      "width": 1920,
+      "horizontal": false,
+      "textOverflow": [],
+      "brokenImages": []
+    }
+  ],
+  "menu": {
+    "closed": true,
+    "focus": "galeria"
+  },
+  "gallery": {
+    "open": true,
+    "title": "Distintas formas de disfrutar.",
+    "overflow": false,
+    "closed": true,
+    "focus": true
+  },
+  "hotspots": [
+    {
+      "width": 320,
+      "height": 740,
+      "open": true,
+      "overflow": false,
+      "title": "Alta Biodisponibilidad",
+      "lock": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "open": true,
+      "overflow": false,
+      "title": "Absorción Multiplicada",
+      "lock": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "open": true,
+      "overflow": false,
+      "title": "Matriz Vegetal",
+      "lock": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "open": true,
+      "overflow": false,
+      "title": "Alta Biodisponibilidad",
+      "lock": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "open": true,
+      "overflow": false,
+      "title": "Absorción Multiplicada",
+      "lock": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "open": true,
+      "overflow": false,
+      "title": "Matriz Vegetal",
+      "lock": true
+    }
+  ],
+  "reduced": {
+    "opacity": "1",
+    "transform": "none"
+  },
+  "fallback": {
+    "h1": "Pequeñas gomitas.Una propuestacon propósito.",
+    "galleryLink": "/images/Gemini_Generated_Image_fh1js4fh1js4fh1j.jpg",
+    "testimonial": "Desde que incluyo las gomitas de quinoa, betabel y naranja en mis mañanas, me siento con más energía para mi día. Las tomo como complemento a mi alimentación."
+  },
+  "errors": [],
+  "badResponses": []
+}

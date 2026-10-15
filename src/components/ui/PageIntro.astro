@@ -1,0 +1,8 @@
+---
+interface Props { label: string; title: string; description: string; note?: string; image?: string; imageAlt?: string; imageCaption?: string; imageWidth?: number; imageHeight?: number; }
+const { label, title, description, note, image, imageAlt = "", imageCaption, imageWidth = 1200, imageHeight = 896 } = Astro.props;
+---
+<section class="page-intro" aria-labelledby="page-title">
+  <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">{label}</span></nav>
+  <div class:list={["page-intro-content", { "has-photo": image }]}><div><p class="section-kicker">GOMIBET / {label}</p><h1 id="page-title">{title}</h1><p>{description}</p></div>{image ? <figure class="page-intro-photo"><img src={image} alt={imageAlt} width={imageWidth} height={imageHeight} decoding="async" /><figcaption>{imageCaption}</figcaption></figure> : note && <div class="page-intro-note"><span aria-hidden="true">✳</span><p>{note}</p></div>}</div>
+</section>

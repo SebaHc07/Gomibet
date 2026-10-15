@@ -114,7 +114,7 @@ export default function InteractiveHotspots() {
       {/* Título Superior (Desaparece al hacer zoom) */}
       <div className={`hotspot-heading text-center z-10 transition-all duration-700 ${activeSpot ? 'opacity-0 -translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
-          3. Anatomía de la <span className="text-[#e63946]">Sinergia</span>
+          Anatomía de la <span className="text-[#e63946]">Sinergia</span>
         </h2>
         <p className="text-neutral-400 font-light max-w-2xl mx-auto text-base md:text-lg px-4">
           Haz clic en los puntos interactivos para sumergirte en la estructura y descubrir la ciencia de la formulación a nivel molecular.
@@ -127,8 +127,9 @@ export default function InteractiveHotspots() {
         {/* Este div es el que hace zoom */}
         <div className="absolute inset-0 w-full h-full" ref={imageContainerRef}>
           <img 
-            src="/assets/gummy_asset.jpg" 
-            alt="Estructura de la gomita" 
+            src="/assets/gummy_asset.webp"
+            alt="Estructura de la gomita"
+            width="1024" height="1024" loading="lazy" decoding="async"
             className="w-full h-full object-cover mix-blend-screen opacity-60 rounded-full"
           />
 
@@ -154,6 +155,19 @@ export default function InteractiveHotspots() {
         </div>
 
       </div>
+
+      <noscript>
+        <style>{'#sinergia .hotspot-image button { display: none; }'}</style>
+        <div className="hotspot-fallback w-full max-w-2xl">
+          <p className="mb-4 text-neutral-300">Información de los ingredientes</p>
+          {hotspotData.map(spot => (
+            <details key={spot.id} className="border-t border-white/20 py-4">
+              <summary className="min-h-11 cursor-pointer text-lg text-white">{spot.title} · {spot.subtitle}</summary>
+              <p className="mt-3 text-neutral-300 leading-relaxed">{spot.content}</p>
+            </details>
+          ))}
+        </div>
+      </noscript>
 
       <dialog
         id="hotspot-dialog"

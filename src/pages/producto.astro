@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import SynergyBento from '../components/sections/SynergyBento.jsx';
+import IngredientDetails from '../components/sections/IngredientDetails.astro';
+import TechnicalSpecs from '../components/sections/TechnicalSpecs.jsx';
+---
+<SiteLayout title="El producto y sus ingredientes | GOMIBET" description="Consulta la formulación de GOMIBET, el papel de sus ingredientes y la comparativa de fuentes de hierro.">
+  <PageIntro label="Producto" title="Conoce lo que hay detrás de cada gomita." description="Ingredientes, formulación y fuentes de hierro. Toda la información del producto, en un solo lugar." note="Hierro + vitamina C. Una propuesta de alimento funcional." image="/images/gummy_packaging.webp" imageAlt="Ilustración conceptual de frasco y bolsa de gomitas fortificadas." imageCaption="Propuesta visual de presentación · Imagen conceptual" />
+  <nav class="page-section-nav" aria-label="En esta ficha"><a href="#formulacion">Formulación</a><a href="#sinergia">Papel de los ingredientes</a><a href="#comparativa">Comparativa de hierro</a></nav>
+  <SynergyBento client:load />
+  <IngredientDetails />
+  <TechnicalSpecs />
+  <aside class="route-next"><div><p class="section-kicker">DE LOS INGREDIENTES A LA ELABORACIÓN</p><h2>¿Cómo se prepara esta propuesta?</h2></div><a class="primary-action" href="/proyecto/#proceso">Conoce el proceso <span aria-hidden="true">↗</span></a></aside>
+</SiteLayout>

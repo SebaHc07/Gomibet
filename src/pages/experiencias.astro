@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import ProductGallery from '../components/sections/ProductGallery.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+---
+<SiteLayout title="Galería e historias de Karen y Azumi | GOMIBET" description="Explora las imágenes de GOMIBET y lee las experiencias personales de Karen Sanchez y Azumi Chipana.">
+  <PageIntro label="Experiencias" title="Gomitas de cerca. Historias en sus propias palabras." description="Una mirada al color y a las formas de las gomitas, junto con las experiencias que Karen y Azumi compartieron con el proyecto." image="/images/Gemini_Generated_Image_s94kg7s94kg7s94k.webp" imageWidth={864} imageHeight={1228} imageAlt="Gomitas rojas de distintas formas en una bandeja." imageCaption="Una mirada al color y a las formas de las gomitas" />
+  <nav class="page-section-nav" aria-label="En esta página"><a href="#galeria">Galería</a><a href="#testimonios">Karen y Azumi</a></nav>
+  <ProductGallery />
+  <Testimonials />
+</SiteLayout>

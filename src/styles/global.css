@@ -94,7 +94,7 @@
 html { scroll-padding-top: 100px; scroll-behavior: smooth; }
 body { color: var(--paper); }
 a, button { -webkit-tap-highlight-color: transparent; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
 .skip-link { position: fixed; top: -100px; left: 20px; z-index: 100; padding: 12px; background: white; color: black; }
 .skip-link:focus { top: 12px; }
 .site-header { position: sticky; top: 0; z-index: 40; height: 92px; padding: 0 5.5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff16; background: #080909e8; backdrop-filter: blur(18px); }
@@ -141,9 +141,9 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
 #proyecto h2 > span:first-child { font-size: 10px; letter-spacing: .2em; color: #686b60; margin-bottom: 32px; }
 #proyecto .text-white { color: #30342e; font-weight: 600; }
 #formulacion { background: #0c0d0d; }
-#formulacion h3, #comparativa h2, #proceso h3 { font-size: clamp(28px, 3.5vw, 48px); line-height: 1.15; letter-spacing: -.045em; }
+#formulacion h2, #comparativa h2, #proceso :is(h2, h3:not(.process-step-title)) { font-size: clamp(28px, 3.5vw, 48px); line-height: 1.15; letter-spacing: -.045em; }
 #formulacion .rounded-3xl, #proceso .rounded-3xl { border-radius: 14px; background-color: #141616; border-color: #ffffff13; }
-#formulacion h4 { letter-spacing: -.03em; }
+#formulacion h3 { letter-spacing: -.03em; }
 #formulacion p { font-size: 15px; line-height: 1.85; }
 #sinergia { background: radial-gradient(ellipse at center, #271711 0%, #080909 65%); }
 #sinergia > div:first-child { top: 70px; }
@@ -223,7 +223,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
 #formulacion .rounded-3xl:hover { border-color: #f2776355; }
 #formulacion .grid > div:first-child { background: linear-gradient(140deg, #2b1b18, #151616 75%); }
 #formulacion .grid > div:nth-child(2) { background: linear-gradient(140deg, #292318, #151616 75%); }
-#formulacion h4 svg { flex-shrink: 0; }
+#formulacion h3 svg { flex-shrink: 0; }
 #sinergia { padding: 72px 5.5% 48px; min-height: 0; gap: 36px; }
 #sinergia > .hotspot-heading { position: relative; top: auto; width: 100%; }
 .hotspot-heading h2 { font-size: clamp(28px, 4vw, 48px); }
@@ -239,7 +239,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
 .recommended-source { background: #f277630a; }
 .source-badge { display: block; width: fit-content; border: 1px solid #f277633b; padding: 5px 9px; border-radius: 30px; margin-top: 10px; font-size: 10px; font-weight: 400; color: #f6a18d; }
 .comparison-cards { display: none; }
-#proceso h3 { overflow-wrap: anywhere; }
+#proceso :is(h2, h3:not(.process-step-title)) { overflow-wrap: anywhere; }
 #proceso > div { gap: 64px; }
 #proceso .flex-1 { min-width: 0; }
 .testimonials-section { padding: clamp(64px, 8vw, 112px) 5.5% 48px; background: #f0ede5; color: #2d352e; }
@@ -333,7 +333,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
   #formulacion .grid > div:nth-child(3) { display: flex; min-height: 220px; max-height: 280px; }
   #formulacion .grid > div { padding: 24px; min-height: 0; }
   #formulacion .grid > div > .mb-12 { margin-bottom: 28px; }
-  #formulacion h4 { font-size: 23px; }
+  #formulacion h3 { font-size: 23px; }
   #formulacion p { font-size: 15px; }
   #sinergia { padding-block: 56px 36px; }
   .hotspot-heading h2 { font-size: 28px; }
@@ -349,7 +349,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
   .comparison-heading { margin-bottom: 32px; }
   .comparison-heading h2 { font-size: 32px; }
   #proceso > div { gap: 48px; }
-  #proceso h3 { font-size: 29px; }
+  #proceso :is(h2, h3:not(.process-step-title)) { font-size: 29px; }
   #proceso .rounded-3xl { padding: 24px; }
   .testimonials-heading h2 { font-size: clamp(31px, 8vw, 44px); }
   .story-card { display: flex; padding: 26px; }
@@ -383,7 +383,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
 .hero-proof:hover strong { color: #f3b294; }
 .hero-bottom { font-size: 10px; }
 .product-visual { box-shadow: 0 28px 80px #0003; }
-#formulacion h3, #comparativa h2, #proceso h3 { text-wrap: balance; }
+#formulacion h2, #comparativa h2, #proceso :is(h2, h3:not(.process-step-title)) { text-wrap: balance; }
 .testimonials-section { position: relative; background: #f4efe4; }
 .testimonials-heading { align-items: center; }
 .testimonials-heading h2 { max-width: 850px; font-size: clamp(36px, 4.8vw, 68px); }
@@ -487,3 +487,7 @@ main > section:not(.hero-section) { scroll-margin-top: 8px; }
   .gallery-viewer-header > span { font-size: 9px; letter-spacing: .07em; }
   .gallery-viewer-footer { gap: 12px; }
 }
+
+/* Audit: legible secondary labels and contained modal scrolling. */
+#formulacion .text-neutral-500 { color: #a1a69d; }
+dialog { overscroll-behavior: contain; scrollbar-gutter: stable; }

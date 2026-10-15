@@ -1,32 +1,17 @@
 ---
-import MotionEnhancements from '../components/ui/MotionEnhancements.astro';
-import Navigation from '../components/ui/Navigation.astro';
-import ProductGallery from '../components/sections/ProductGallery.astro';
-import Testimonials from '../components/sections/Testimonials.astro';
-import Layout from '../layouts/Layout.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 import Hero from '../components/sections/Hero.jsx';
-import ProblemStatement from '../components/sections/ProblemStatement.jsx';
-import SynergyBento from '../components/sections/SynergyBento.jsx';
-import InteractiveHotspots from '../components/sections/InteractiveHotspots.jsx';
-import TechnicalSpecs from '../components/sections/TechnicalSpecs.jsx';
-import ProcessTimeline from '../components/sections/ProcessTimeline.jsx';
+import HomeJourney from '../components/sections/HomeJourney.astro';
+import Questions from '../components/sections/Questions.astro';
 ---
-
-<Layout title="Nutrición Intervencional - Gomitas Premium">
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <Navigation />
-    <MotionEnhancements />
-
-		<main id="contenido" class="w-full bg-black min-h-screen">
-			<Hero />
-			<ProblemStatement client:load />
-            <ProductGallery />
-			<SynergyBento client:load />
-			<InteractiveHotspots client:load />
-			<TechnicalSpecs />
-			<ProcessTimeline client:load />
-            <Testimonials />
-		</main>
-
-    <footer class="site-footer"><a class="footer-wordmark" href="#inicio">Nutrición<span>Intervencional.</span></a><div><p>Gomitas Fortificadas</p><a href="#inicio">Volver al inicio ↑</a></div><p class="footer-copyright">© IESTP - ET - EIML - 2026.</p></footer>
-</Layout>
+<SiteLayout title="GOMIBET | Gomitas fortificadas con hierro y vitamina C" description="Conoce GOMIBET: el producto, la propuesta de formulación, el proyecto y las experiencias de Karen y Azumi." home>
+  <Hero />
+  <HomeJourney />
+  <section class="home-about" aria-labelledby="home-about-title"><figure class="home-about-image"><img src="/images/gummy_packaging.webp" alt="Ilustración conceptual de dos formatos de empaque para gomitas." width="1200" height="896" loading="lazy" decoding="async" /><figcaption>Presentación conceptual</figcaption></figure><div><p class="section-kicker">UNA IDEA CON PROPÓSITO</p><h2 id="home-about-title">Un proyecto para conocer de cerca.</h2><p>GOMIBET es una propuesta de desarrollo de gomitas fortificadas con hierro y vitamina C. Conoce el propósito, la formulación y cada etapa de elaboración.</p></div><a class="secondary-action" href="/proyecto/">Nuestra propuesta <span aria-hidden="true">↗</span></a></section>
+  <Questions />
+</SiteLayout>
+<script>
+  // Keep links shared before the site was split into pages usable.
+  const legacy: Record<string, string> = { '#formulacion': '/producto/#formulacion', '#comparativa': '/producto/#comparativa', '#sinergia': '/producto/#sinergia', '#proyecto': '/proyecto/#proyecto', '#proceso': '/proyecto/#proceso', '#galeria': '/experiencias/#galeria', '#testimonios': '/experiencias/#testimonios' };
+  if (legacy[location.hash]) location.replace(legacy[location.hash]);
+</script>

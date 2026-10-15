@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-10">
         <div>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none mb-4 text-white/90">
-            Nutrición<br />Intervencional
+            GOMIBET
           </h2>
           <p className="text-neutral-500 text-sm max-w-xs">
             Propuesta técnica de gomitas nutracéuticas fortificadas con hierro para el tratamiento de la anemia.

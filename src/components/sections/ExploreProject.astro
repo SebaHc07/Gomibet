@@ -1,0 +1,12 @@
+---
+const sections = [
+ { href: '/producto/#formulacion', icon: 'Fe', title: '¿Qué contienen?', text: 'Ingredientes y formulación', tone: 'berry' },
+ { href: '/producto/#comparativa', icon: '↔', title: 'Compara las fuentes', text: 'Absorción, tolerancia y sabor', tone: 'orange' },
+ { href: '/proyecto/#proceso', icon: '01', title: 'Conoce el proceso', text: 'De la mezcla al empaque', tone: 'green' },
+ { href: '/experiencias/#testimonios', icon: '“', title: 'Lee sus historias', text: 'Karen y Azumi, en sus palabras', tone: 'berry' },
+];
+---
+<section class="explore-project" aria-labelledby="explore-title">
+  <div class="explore-heading"><h2 id="explore-title">¿Qué te gustaría conocer?</h2><span>Explora el proyecto a tu ritmo</span></div>
+  <div class="explore-grid">{sections.map(item => <a href={item.href} class={`explore-card explore-${item.tone}`}><span class="explore-icon" aria-hidden="true">{item.icon}</span><span><strong>{item.title}</strong><small>{item.text}</small></span><span aria-hidden="true">↗</span></a>)}</div>
+</section>

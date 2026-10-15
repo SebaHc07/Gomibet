@@ -11,7 +11,7 @@ export default function TechnicalSpecs() {
   return (
     <section id="comparativa" className="comparison-section">
       <div className="section-container">
-        <p className="section-kicker">04 / UNA ELECCIÓN INFORMADA</p>
+        <p className="section-kicker">COMPARA LAS FUENTES DE HIERRO</p>
         <div className="comparison-heading" data-reveal><h2>Distintas fuentes.<br /><span>Una mirada en detalle.</span></h2><p>Tabla Comparativa de Fuentes de Hierro.<br />Biodisponibilidad, tolerancia y sabor, lado a lado.</p></div>
         <table className="comparison-table" data-reveal>
           <caption className="sr-only">Comparación de cuatro fuentes de hierro</caption>

@@ -9,13 +9,13 @@ const photos = [
     <p class="section-kicker">EL PROYECTO, MÁS DE CERCA</p>
     <h2 id="gallery-title">Pequeñas formas.<br /><em>Muchos detalles.</em></h2>
     <p>Del concepto a la forma: una mirada al color, la textura y los detalles de las gomitas.</p>
-    <a href="#formulacion" class="gallery-follow">Descubre lo que hay detrás <span aria-hidden="true">↗</span></a>
+    <a href="/producto/#formulacion" class="gallery-follow">Descubre lo que hay detrás <span aria-hidden="true">↗</span></a>
     <span class="gallery-index" aria-hidden="true">01 — 02</span>
   </div>
   <div class="gallery-photos">
     {photos.map(photo => <figure class="gallery-frame" data-gallery-frame>
       <a href={photo.src} class="gallery-image-link" data-gallery-open data-title={photo.title} data-alt={photo.alt} data-width={photo.width} data-height={photo.height} aria-label={`Ampliar imagen: ${photo.label}`} aria-haspopup="dialog" aria-controls="gallery-dialog">
-        <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+        <img src={photo.src.replace('.jpg', '.webp')} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
         <span class="gallery-zoom" aria-hidden="true"><span>Ver en detalle</span><span>↗</span></span>
       </a>
       <figcaption><span>{photo.number}</span><div><p>{photo.label}</p><h3>{photo.title}</h3></div></figcaption>

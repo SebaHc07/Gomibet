@@ -1,0 +1,5 @@
+---
+interface Props { light?: boolean; }
+const { light = false } = Astro.props;
+---
+<img class="gomibet-logo" src={`/brand/gomibet-logo${light ? '-light' : ''}.svg`} alt="GOMIBET" width="432" height="112" decoding="async" />

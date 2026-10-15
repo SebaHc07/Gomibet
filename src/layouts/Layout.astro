@@ -1,28 +1,33 @@
 ---
 import '../styles/global.css';
+import '../styles/brand.css';
 
 interface Props {
 	title: string;
+    description?: string;
+    preloadHero?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, description = "GOMIBET: conoce el producto, el proyecto y las experiencias personales con las gomitas.", preloadHero = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="bg-black text-white">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Nutrición Intervencional - Gomitas fortificadas con hierro y vitamina C" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#101510" />
+        <meta name="theme-color" content="#fffdf8" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="es_PE" />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content="Conoce el proyecto de gomitas fortificadas, su formulación y las experiencias de Karen y Azumi." />
+        <meta property="og:description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preload" as="image" href="/images/gummy_hero.jpg" fetchpriority="high" />
+		{preloadHero && <link rel="preload" as="image" href="/images/Gemini_Generated_Image_fh1js4fh1js4fh1j.webp" fetchpriority="high" />}
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-black antialiased overflow-x-hidden selection:bg-white/20 selection:text-white">

@@ -1,0 +1,498 @@
+{
+  "structure": [
+    {
+      "route": "/",
+      "title": "GOMIBET | Gomitas fortificadas con hierro y vitamina C",
+      "description": "Conoce GOMIBET: el producto, la propuesta de formulación, el proyecto y las experiencias de Karen y Azumi.",
+      "h1": 1,
+      "current": [
+        "/"
+      ],
+      "molecularDiagram": false,
+      "ids": [
+        "contenido",
+        "inicio",
+        "journey-title",
+        "home-about-title",
+        "preguntas",
+        "questions-title"
+      ]
+    },
+    {
+      "route": "/producto/",
+      "title": "El producto y sus ingredientes | GOMIBET",
+      "description": "Consulta la formulación de GOMIBET, el papel de sus ingredientes y la comparativa de fuentes de hierro.",
+      "h1": 1,
+      "current": [
+        "/producto/"
+      ],
+      "molecularDiagram": false,
+      "ids": [
+        "contenido",
+        "page-title",
+        "formulacion",
+        "sinergia",
+        "ingredient-details-title",
+        "comparativa"
+      ]
+    },
+    {
+      "route": "/proyecto/",
+      "title": "El proyecto y la elaboración | GOMIBET",
+      "description": "Conoce el propósito de GOMIBET, las cuatro etapas de elaboración y las consideraciones técnicas y de conservación.",
+      "h1": 1,
+      "current": [
+        "/proyecto/"
+      ],
+      "molecularDiagram": false,
+      "ids": [
+        "contenido",
+        "page-title",
+        "proyecto",
+        "proceso"
+      ]
+    },
+    {
+      "route": "/experiencias/",
+      "title": "Galería e historias de Karen y Azumi | GOMIBET",
+      "description": "Explora las imágenes de GOMIBET y lee las experiencias personales de Karen Sanchez y Azumi Chipana.",
+      "h1": 1,
+      "current": [
+        "/experiencias/"
+      ],
+      "molecularDiagram": false,
+      "ids": [
+        "contenido",
+        "page-title",
+        "galeria",
+        "gallery-title",
+        "gallery-dialog",
+        "gallery-dialog-title",
+        "testimonios",
+        "testimonials-title"
+      ]
+    }
+  ],
+  "matrix": [
+    {
+      "route": "/",
+      "width": 320,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 414,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 640,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 641,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 900,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 901,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 320,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 360,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 375,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 390,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 414,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 640,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 641,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 768,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 900,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 901,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 1024,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 1280,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 1440,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/producto/",
+      "width": 1920,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 320,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 360,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 375,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 390,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 414,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 640,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 641,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 768,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 900,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 901,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 1024,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 1280,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 1440,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/proyecto/",
+      "width": 1920,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 320,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 360,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 375,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 390,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 414,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 640,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 641,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 768,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 900,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 901,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 1024,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 1280,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 1440,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    },
+    {
+      "route": "/experiencias/",
+      "width": 1920,
+      "horizontal": false,
+      "overflow": [],
+      "brokenImages": []
+    }
+  ],
+  "brokenLinks": [],
+  "mobileNavigation": true,
+  "ingredientAccordion": true,
+  "gallery": true,
+  "galleryFocus": true,
+  "legacyRedirect": "http://127.0.0.1:4322/producto/#sinergia",
+  "nojsIngredients": true,
+  "normal": [
+    {
+      "route": "/",
+      "hidden": 0
+    },
+    {
+      "route": "/producto/",
+      "hidden": 0
+    },
+    {
+      "route": "/proyecto/",
+      "hidden": 0
+    },
+    {
+      "route": "/experiencias/",
+      "hidden": 0
+    }
+  ],
+  "errors": [],
+  "badResponses": [],
+  "warnings": []
+}

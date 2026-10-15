@@ -1,0 +1,73 @@
+<div id="gomibet-intro" class="brand-intro" hidden aria-hidden="true">
+  <div class="brand-intro-content">
+    <span class="brand-intro-kicker">BIENVENIDO A</span>
+    <img src="/brand/gomibet-logo.svg" alt="" width="432" height="112" />
+    <p>Ciencia que se disfruta.</p>
+    <span class="brand-intro-track"><span></span></span>
+  </div>
+  <span class="brand-intro-note">BETABEL · NATURALEZA · UNA IDEA CON PROPÓSITO</span>
+</div>
+<script is:inline>
+  (() => {
+    const intro = document.getElementById('gomibet-intro');
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!intro || preference.matches) return;
+    try {
+      if (sessionStorage.getItem('gomibet:intro:v2')) return;
+      sessionStorage.setItem('gomibet:intro:v2', 'seen');
+    } catch { return; }
+
+    const started = performance.now();
+    const events = new AbortController();
+    let closing = false;
+    let minimumTimer;
+    let removalTimer;
+    const finish = (immediate = false) => {
+      if (closing) return;
+      closing = true;
+      clearTimeout(deadline);
+      clearTimeout(minimumTimer);
+      events.abort();
+      preference.removeEventListener('change', onPreference);
+      if (immediate) { intro.remove(); return; }
+      intro.classList.add('is-leaving');
+      removalTimer = setTimeout(() => intro.remove(), 260);
+    };
+    const onPreference = () => { if (preference.matches) finish(true); };
+    // Both a timer and a CSS fallback prevent the decoration from lingering.
+    const deadline = setTimeout(() => finish(), 3000);
+    intro.hidden = false;
+    preference.addEventListener('change', onPreference);
+    document.addEventListener('keydown', () => finish(true), { once: true, signal: events.signal });
+    document.addEventListener('pointerdown', () => finish(true), { once: true, signal: events.signal });
+    window.addEventListener('pagehide', () => { clearTimeout(removalTimer); finish(true); intro.remove(); }, { once: true, signal: events.signal });
+    const ready = () => {
+      const hero = document.querySelector('img[fetchpriority="high"]');
+      const imageReady = hero?.decode ? hero.decode().catch(() => {}) : Promise.resolve();
+      imageReady.then(() => {
+        if (closing) return;
+        minimumTimer = setTimeout(() => finish(), Math.max(0, 1800 - (performance.now() - started)));
+      });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true, signal: events.signal });
+    else ready();
+  })();
+</script>
+<style>
+  .brand-intro { position: fixed; inset: 0; z-index: 200; background: #fffdf8; color: #802d47; pointer-events: none; padding: 24px; place-items: center; animation: intro-safety .01s 3.5s forwards; }
+  .brand-intro[hidden] { display: none; }
+  .brand-intro:not([hidden]) { display: grid; }
+  .brand-intro-content { width: min(280px,100%); text-align: center; animation: intro-arrive .4s ease-out both; }
+  .brand-intro-kicker { display: block; font-size: 9px; letter-spacing: .24em; color: #899278; margin-bottom: 23px; }
+  .brand-intro img { display: block; width: 100%; height: auto; }
+  .brand-intro p { font-size: 12px; color: #7c856f; margin-top: 20px; }
+  .brand-intro-track { display: block; width: 96px; height: 2px; background: #e9e9dc; margin: 29px auto 0; border-radius: 3px; overflow: hidden; }
+  .brand-intro-track > span { display: block; height: 100%; width: 45%; background: linear-gradient(90deg,#8e3851,#74895c); animation: intro-travel 1s ease-in-out infinite; }
+  .brand-intro-note { position: absolute; bottom: max(30px,env(safe-area-inset-bottom)); left: 24px; right: 24px; text-align: center; color: #9a9e8e; font-size: 8px; line-height: 1.8; letter-spacing: .12em; }
+  .brand-intro.is-leaving { animation: intro-leave .24s ease-in forwards; }
+  @keyframes intro-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes intro-travel { from { transform: translateX(-110%); } to { transform: translateX(325%); } }
+  @keyframes intro-leave { to { opacity: 0; visibility: hidden; } }
+  @keyframes intro-safety { to { opacity: 0; visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) { .brand-intro { display: none !important; } }
+</style>

@@ -36,10 +36,10 @@ export default function ProcessTimeline() {
   };
 
   const steps = [
-    { num: '1', title: 'Mezcla & Hydration', desc: 'Hidratación de gelatina o pectina con pulpa de fruta a 60°C.' },
+    { num: '1', title: 'Mezcla e Hidratación', desc: 'Hidratación de gelatina o pectina con pulpa de fruta a 60°C.' },
     { num: '2', title: 'Adición Activa', desc: 'Enfriar a <50°C e incorporar Hierro y Vitamina C (Anti-degradación).' },
     { num: '3', title: 'Moldeo', desc: 'Dosificación en moldes de silicona o almidón preformados.' },
-    { num: '4', title: 'Curado & Empaque', desc: 'Refrigeración/Secado, desmolde y sellado opaco para evitar fotólisis.' }
+    { num: '4', title: 'Curado y Empaque', desc: 'Refrigeración/Secado, desmolde y sellado opaco para evitar fotólisis.' }
   ];
 
   return (
@@ -47,9 +47,9 @@ export default function ProcessTimeline() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
         
         <div className="flex-1">
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-12 md:mb-16 text-white">
-            5. Proceso de Elaboración
-          </h3>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-12 md:mb-16 text-white">
+            Proceso de Elaboración
+          </h2>
           
           <div className="flex flex-col gap-8 md:gap-10 ml-8 sm:ml-12 md:ml-4 pl-8 sm:pl-10 relative">
             <div ref={lineRef} className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#e63946] via-[#ff9f1c] to-white/10"></div>
@@ -58,7 +58,7 @@ export default function ProcessTimeline() {
                 <div className="absolute -left-[49px] sm:-left-[57px] top-0 w-8 h-8 rounded-full bg-black border border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_15px_rgba(230,57,70,0.3)]">
                   {step.num}
                 </div>
-                <h4 className="text-xl sm:text-2xl font-medium mb-2 text-white/90">{step.title}</h4>
+                <h3 className="process-step-title text-xl sm:text-2xl font-medium mb-2 text-white/90">{step.title}</h3>
                 <p className="text-sm md:text-base text-neutral-400 font-light leading-relaxed">{step.desc}</p>
               </div>
             ))}

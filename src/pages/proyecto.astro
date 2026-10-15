@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import ProblemStatement from '../components/sections/ProblemStatement.jsx';
+import ProcessTimeline from '../components/sections/ProcessTimeline.jsx';
+---
+<SiteLayout title="El proyecto y la elaboración | GOMIBET" description="Conoce el propósito de GOMIBET, las cuatro etapas de elaboración y las consideraciones técnicas y de conservación.">
+  <PageIntro label="Proyecto" title="Cada propuesta empieza con una idea." description="Conoce el propósito de GOMIBET y el camino que sigue la formulación, desde la mezcla hasta el empaque." note="Del propósito al proceso. Cuatro etapas para explorar." image="/images/industrial_lab.webp" imageWidth={1200} imageHeight={670} imageAlt="Ilustración conceptual de una línea de elaboración de gomitas." imageCaption="Ilustración del proceso · Imagen conceptual" />
+  <nav class="page-section-nav" aria-label="En esta página"><a href="#proyecto">El propósito</a><a href="#proceso">Proceso y conservación</a></nav>
+  <ProblemStatement client:load />
+  <ProcessTimeline client:load />
+  <aside class="route-next"><div><p class="section-kicker">EN PRIMERA PERSONA</p><h2>También hay historias por conocer.</h2></div><a class="primary-action" href="/experiencias/">Conoce las experiencias <span aria-hidden="true">↗</span></a></aside>
+</SiteLayout>

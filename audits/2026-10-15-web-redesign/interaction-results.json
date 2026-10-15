@@ -1,0 +1,85 @@
+{
+  "normalMotion": [
+    {
+      "width": 390,
+      "hidden": []
+    },
+    {
+      "width": 901,
+      "hidden": []
+    },
+    {
+      "width": 1440,
+      "hidden": []
+    }
+  ],
+  "faq": [
+    {
+      "width": 320,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "open": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "open": true,
+      "overflow": false
+    }
+  ],
+  "comparison": {
+    "background": "rgb(255, 253, 248)",
+    "text": "rgb(61, 78, 54)"
+  },
+  "faqWithoutJS": true,
+  "errors": [],
+  "badResponses": []
+}

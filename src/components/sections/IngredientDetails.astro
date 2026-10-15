@@ -1,0 +1,10 @@
+---
+import { ingredients } from '../../data/ingredients.js';
+---
+<section id="sinergia" class="ingredient-details" aria-labelledby="ingredient-details-title">
+  <div><p class="section-kicker">EL PAPEL DE CADA INGREDIENTE</p><h2 id="ingredient-details-title">Tres componentes.<br />Una propuesta.</h2><p>Conoce el papel del hierro, la vitamina C y la base de pectina en la formulación descrita.</p></div>
+  <div class="ingredient-list">{ingredients.map((ingredient, index) => <details open={index === 0}>
+    <summary><span class="ingredient-number">0{index + 1}</span><span><strong>{ingredient.subtitle}</strong><small>{ingredient.title}</small></span><span class="ingredient-toggle" aria-hidden="true">+</span></summary>
+    <p>{ingredient.content}</p>
+  </details>)}</div>
+</section>
